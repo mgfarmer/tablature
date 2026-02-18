@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tablature - Tab Manager</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Tablature</h1>
+      <p class="subtitle">Intelligent Tab Manager</p>
+    </header>
+    
+    <main>
+      <div class="menu-section">
+        <h2>Quick Actions</h2>
+        <select id="actionMenu" class="action-dropdown">
+          <option value="">Select an action...</option>
+          <option value="list-tabs">List All Tabs</option>
+          <option value="close-duplicates">Close Duplicate Tabs</option>
+          <option value="group-by-domain">Group by Domain</option>
+          <option value="save-session">Save Current Session</option>
+        </select>
+        <button id="executeAction" class="btn-primary">Execute</button>
+      </div>
+      
+      <div class="stats-section">
+        <div class="stat-item">
+          <span class="stat-label">Open Tabs:</span>
+          <span class="stat-value" id="tabCount">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Windows:</span>
+          <span class="stat-value" id="windowCount">0</span>
+        </div>
+      </div>
+      
+      <div class="tab-list" id="tabList">
+        <!-- Tabs will be dynamically inserted here -->
+      </div>
+    </main>
+    
+    <footer>
+      <button id="settingsBtn" class="btn-secondary">Settings</button>
+      <button id="refreshBtn" class="btn-secondary">Refresh</button>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
