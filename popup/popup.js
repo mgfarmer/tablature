@@ -23,7 +23,7 @@ async function updateTabStats() {
     document.getElementById('tabCount').textContent = tabs.length;
     document.getElementById('windowCount').textContent = windows.length;
   } catch (error) {
-    console.error('Error updating stats:', error);
+    console.error('Failed to fetch tab and window statistics:', error);
   }
 }
 
@@ -39,7 +39,7 @@ async function loadTabs() {
       tabList.appendChild(tabItem);
     });
   } catch (error) {
-    console.error('Error loading tabs:', error);
+    console.error('Failed to load tabs for current window:', error);
   }
 }
 
@@ -106,7 +106,7 @@ async function closeDuplicateTabs() {
       alert('No duplicate tabs found');
     }
   } catch (error) {
-    console.error('Error closing duplicates:', error);
+    console.error('Failed to close duplicate tabs:', error);
     alert('Error closing duplicate tabs');
   }
 }
@@ -124,14 +124,14 @@ async function saveSession() {
     };
     
     // Save to storage
-    const sessions = await chrome.storage.local.get('sessions') || { sessions: [] };
-    sessions.sessions = sessions.sessions || [];
-    sessions.sessions.push(session);
-    await chrome.storage.local.set(sessions);
+    const data = await chrome.storage.local.get('sessions');
+    const sessions = data.sessions || [];
+    sessions.push(session);
+    await chrome.storage.local.set({ sessions });
     
     alert('Session saved successfully!');
   } catch (error) {
-    console.error('Error saving session:', error);
+    console.error('Failed to save tab session:', error);
     alert('Error saving session');
   }
 }

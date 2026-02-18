@@ -19,15 +19,14 @@ chrome.runtime.onInstalled.addListener((details) => {
 });
 
 // Listen for tab creation
-chrome.tabs.onCreated.addListener((tab) => {
+chrome.tabs.onCreated.addListener(async (tab) => {
   console.log('Tab created:', tab.id);
   
   // Check if we should auto-close duplicates
-  chrome.storage.local.get('settings', (data) => {
-    if (data.settings && data.settings.autoCloseDuplicates) {
-      checkForDuplicates(tab);
-    }
-  });
+  const data = await chrome.storage.local.get('settings');
+  if (data.settings && data.settings.autoCloseDuplicates) {
+    checkForDuplicates(tab);
+  }
 });
 
 // Listen for tab updates
