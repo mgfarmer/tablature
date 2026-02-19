@@ -59,7 +59,8 @@ export type MessagePayload =
   | { kind: "tablature/updateSettings"; settings: Partial<StoredSettings> }
   | { kind: "tablature/groupPriorityTabs" }
   | { kind: "tablature/getPreviousSessions" }
-  | { kind: "tablature/addActiveTab" };
+  | { kind: "tablature/addActiveTab" }
+  | { kind: "tablature/dismissEntry"; url: string };
 
 export interface PriorityResponse {
   entries: PriorityEntry[];

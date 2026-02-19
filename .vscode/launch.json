@@ -36,6 +36,40 @@
         "hidden": false,
         "group": "tablature"
       }
+    },
+    {
+      "name": "Tablature: Edge (Default Profile)",
+      "type": "pwa-msedge",
+      "request": "launch",
+      "url": "chrome://extensions",
+      "webRoot": "${workspaceFolder}/dist",
+      "userDataDir": false,
+      "runtimeArgs": [
+        "--load-extension=${workspaceFolder}/dist",
+        "--auto-open-devtools-for-tabs"
+      ],
+      "preLaunchTask": "npm: build",
+      "presentation": {
+        "hidden": false,
+        "group": "tablature"
+      }
+    },
+    {
+      "name": "Tablature: Chrome (Default Profile)",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "chrome://extensions",
+      "webRoot": "${workspaceFolder}/dist",
+      "userDataDir": false,
+      "runtimeArgs": [
+        "--load-extension=${workspaceFolder}/dist",
+        "--auto-open-devtools-for-tabs"
+      ],
+      "preLaunchTask": "npm: build",
+      "presentation": {
+        "hidden": false,
+        "group": "tablature"
+      }
     }
   ]
 }

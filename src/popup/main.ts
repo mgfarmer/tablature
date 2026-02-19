@@ -261,7 +261,18 @@ function renderPriorityRow(entry: PriorityEntry, rank: number): HTMLElement {
   lastActive.textContent = `Last focused ${formatRelative(entry.lastActivatedAt)} ago`;
   actions.appendChild(lastActive);
 
-  row.append(badge, avatar, meta, actions);
+  const dismiss = document.createElement("button");
+  dismiss.className = "row-dismiss";
+  dismiss.type = "button";
+  dismiss.title = "Remove from list";
+  dismiss.setAttribute("aria-label", "Remove from list");
+  dismiss.textContent = "✕";
+  dismiss.addEventListener("click", (event) => {
+    event.stopPropagation();
+    void handleDismissEntry(entry);
+  });
+
+  row.append(badge, avatar, meta, actions, dismiss);
   row.addEventListener("click", () => {
     if (!runtimeAvailable || typeof entry.tabId !== "number") {
       setStatus("Cannot activate tab in preview mode.");
@@ -275,6 +286,25 @@ function renderPriorityRow(entry: PriorityEntry, rank: number): HTMLElement {
   });
 
   return row;
+}
+
+async function handleDismissEntry(entry: PriorityEntry): Promise<void> {
+  if (state.priority) {
+    state.priority.entries = state.priority.entries.filter(
+      (e) => e.url !== entry.url,
+    );
+  }
+  renderPriorityList();
+  if (runtimeAvailable) {
+    try {
+      await sendMessage<undefined>({
+        kind: "tablature/dismissEntry",
+        url: entry.url,
+      });
+    } catch (error) {
+      console.error("[tablature] failed to dismiss entry", error);
+    }
+  }
 }
 
 function renderDomainSection() {

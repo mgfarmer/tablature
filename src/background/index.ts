@@ -247,9 +247,21 @@ async function handleMessage(
       return { entries: state.previousSessions };
     case "tablature/addActiveTab":
       return addActiveTabToPriority();
+    case "tablature/dismissEntry":
+      dismissTelemetryEntry(message.url);
+      return undefined;
     default:
       return undefined;
   }
+}
+
+function dismissTelemetryEntry(url: string): void {
+  for (const [tabId, entry] of state.telemetry) {
+    if (entry.url === url) {
+      state.telemetry.delete(tabId);
+    }
+  }
+  queueFlush();
 }
 
 async function handleTabActivated(
