@@ -1,0 +1,20 @@
+{
+  "name": "tablature",
+  "version": "0.1.0",
+  "description": "Chromium Manifest V3 extension to manage browser tabs intelligently.",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs --watch",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.269",
+    "chokidar": "^3.6.0",
+    "esbuild": "^0.21.5",
+    "typescript": "^5.7.2"
+  }
+}

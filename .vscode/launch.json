@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Tablature: Launch Edge with Extension",
+      "type": "pwa-msedge",
+      "request": "launch",
+      "url": "chrome://extensions",
+      "webRoot": "${workspaceFolder}/dist",
+      "runtimeArgs": [
+        "--load-extension=${workspaceFolder}/dist",
+        "--disable-extensions-except=${workspaceFolder}/dist",
+        "--auto-open-devtools-for-tabs",
+        "--user-data-dir=${workspaceFolder}/.vscode/.edge-profile"
+      ],
+      "preLaunchTask": "npm: build",
+      "presentation": {
+        "hidden": false,
+        "group": "tablature"
+      }
+    },
+    {
+      "name": "Tablature: Launch Chrome with Extension",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "chrome://extensions",
+      "webRoot": "${workspaceFolder}/dist",
+      "runtimeArgs": [
+        "--load-extension=${workspaceFolder}/dist",
+        "--disable-extensions-except=${workspaceFolder}/dist",
+        "--auto-open-devtools-for-tabs",
+        "--user-data-dir=${workspaceFolder}/.vscode/.chrome-profile"
+      ],
+      "preLaunchTask": "npm: build",
+      "presentation": {
+        "hidden": false,
+        "group": "tablature"
+      }
+    }
+  ]
+}

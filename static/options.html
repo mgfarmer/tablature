@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tablature Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/options.css" />
+  </head>
+  <body>
+    <main class="options-panel">
+      <header>
+        <div>
+          <p class="eyebrow">Tablature</p>
+          <h1>Extension Settings</h1>
+          <p class="subtitle">Tune how tab importance is tracked and surfaced.</p>
+        </div>
+      </header>
+
+      <form id="settings-form">
+        <section>
+          <h2>Attention Tracking</h2>
+          <label class="field">
+            <span>Idle threshold (minutes)</span>
+            <input id="idle-threshold" type="number" min="1" max="30" step="1" />
+            <small>Pause tracking if there is no keyboard or mouse input for this long.</small>
+          </label>
+        </section>
+
+        <section>
+          <h2>Priority Ranking</h2>
+          <label class="field">
+            <span>Maximum priority tabs</span>
+            <input id="max-priority" type="number" min="3" max="10" step="1" />
+            <small>Used for the popup list and the "Group Priority" action.</small>
+          </label>
+          <label class="field">
+            <span>Previous session history size</span>
+            <input id="previous-session-count" type="number" min="5" max="50" step="1" />
+            <small>How many historical important tabs to remember between browser restarts.</small>
+          </label>
+        </section>
+
+        <section>
+          <h2>Presentation</h2>
+          <label class="field checkbox">
+            <input id="domain-grouping" type="checkbox" />
+            <div>
+              <span>Enable domain grouping</span>
+              <small>Compact related tabs under a single domain header inside the popup.</small>
+            </div>
+          </label>
+          <label class="field checkbox dimmed" title="Coming soon">
+            <input id="visual-cue" type="checkbox" disabled />
+            <div>
+              <span>Show visual cue on important tabs</span>
+              <small>Content script support is planned and will respect this toggle.</small>
+            </div>
+          </label>
+        </section>
+      </form>
+      <footer>
+        <p id="save-status">All changes are saved automatically.</p>
+      </footer>
+    </main>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

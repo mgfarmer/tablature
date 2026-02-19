@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.log
+*.tgz
+.vscode/*.code-workspace
+.vscode/.react
+.vscode/.edge-profile/
+.vscode/.chrome-profile/
+.DS_Store

@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Tablature",
+  "description": "Intelligent tab manager for Chromium browsers.",
+  "version": "0.1.0",
+  "minimum_chrome_version": "121",
+  "permissions": ["tabs", "tabGroups", "storage", "idle", "alarms"],
+  "action": {
+    "default_title": "Tablature",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "commands": {
+    "tablature.group-priority": {
+      "suggested_key": {
+        "default": "Alt+Shift+G"
+      },
+      "description": "Group top priority tabs into a dedicated tab group"
+    }
+  }
+}

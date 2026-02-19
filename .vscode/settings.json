@@ -1,0 +1,16 @@
+{
+  "workbench.colorCustomizations": {
+    "terminal.ansiBlue": "#00f",
+    "terminal.ansiGreen": "#0f0",
+    "terminal.ansiWhite": "#fff"
+  },
+  "simpleBrowser.useIntegratedBrowser": true,
+  "workbench.browser.openLocalhostLinks": true,
+  "livePreview.useIntegratedBrowser": true,
+  "json.schemas": [
+    {
+      "fileMatch": ["manifest.json"],
+      "url": "https://json.schemastore.org/chrome-manifest"
+    }
+  ]
+}

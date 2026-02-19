@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tablature</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/popup.css" />
+  </head>
+  <body>
+    <main class="popup-shell">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">Attention radar</p>
+          <h1>Find Your Focus</h1>
+          <p class="subtitle">Live ranking of tabs that actually hold your attention.</p>
+        </div>
+        <div class="header-actions">
+          <button id="load-sample" class="ghost" type="button" title="Load mock rankings">Sample Data</button>
+          <button id="add-active" class="primary" type="button" title="Boost the active tab">Add Active Tab</button>
+          <button id="group-tabs" class="primary">Group Priority</button>
+          <button id="refresh" class="ghost" title="Refresh snapshot">↻</button>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>Top Tabs</h2>
+          <span id="generated-at" class="caption"></span>
+        </div>
+        <div id="priority-list" class="list-stack priority-scroll"></div>
+      </section>
+
+      <section class="panel" id="domain-section" hidden>
+        <div class="section-head">
+          <h2>Domains On Fire</h2>
+        </div>
+        <div id="domain-list" class="domain-grid"></div>
+      </section>
+
+      <button id="previous-tabs-trigger" class="previous-trigger" type="button">
+        Previous Session Tabs
+      </button>
+
+      <footer class="status-bar">
+        <span id="status">Booting…</span>
+      </footer>
+    </main>
+
+    <div id="previous-popover" class="previous-popover" hidden>
+      <div class="popover-card" role="dialog" aria-labelledby="previous-popover-title">
+        <header class="popover-header">
+          <div>
+            <p class="eyebrow">History</p>
+            <h2 id="previous-popover-title">Previous Session Tabs</h2>
+          </div>
+          <div class="popover-actions">
+            <button id="open-options" class="linkish" type="button">Settings</button>
+            <button id="close-previous" class="ghost" type="button" title="Close">✕</button>
+          </div>
+        </header>
+        <p class="popover-subtitle">Recently important tabs you closed earlier.</p>
+        <ul id="previous-list" class="tab-submenu" role="menu"></ul>
+      </div>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
